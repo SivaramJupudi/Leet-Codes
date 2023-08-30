@@ -1,0 +1,19 @@
+#greater than n//3 times
+
+class Solution:
+    def majorityElement(self, arr: List[int]) -> List[int]:
+        n=len(arr)
+        result=[]
+        mpp={}
+        min=(n//3)+1
+        for i in arr:
+            if i in mpp:
+                mpp[i]+=1
+
+            else:
+                mpp[i]=1
+
+            if mpp[i]==min:
+                result.append(i)
+
+        return result
