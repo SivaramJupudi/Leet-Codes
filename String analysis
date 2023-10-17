@@ -1,0 +1,25 @@
+def analyze_string(string):
+    total_chars = len(string)
+    uppercase_count = sum(1 for char in string if char.isupper())
+    lowercase_count = sum(1 for char in string if char.islower())
+    digit_count = sum(1 for char in string if char.isdigit())
+    other_count = total_chars - (uppercase_count + lowercase_count + digit_count)
+
+    uppercase_percentage = (uppercase_count / total_chars) * 100
+    lowercase_percentage = (lowercase_count / total_chars) * 100
+    digit_percentage = (digit_count / total_chars) * 100
+    other_percentage = (other_count / total_chars) * 100
+
+    return uppercase_percentage, lowercase_percentage, digit_percentage, other_percentage
+
+# Example 1
+input_string1 = "Support1@litwork.in"
+results1 = analyze_string(input_string1)
+for category, percentage in zip(["Uppercase", "Lowercase", "Digits", "Other"], results1):
+    print(f"{category} letters: {percentage:.3f}%")
+
+# Example 2
+input_string2 = "Client 1234@litwork.in"
+results2 = analyze_string(input_string2)
+for category, percentage in zip(["Uppercase", "Lowercase", "Digits", "Other"], results2):
+    print(f"{category} letters: {percentage:.3f}%")
