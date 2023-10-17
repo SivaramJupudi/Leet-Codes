@@ -1,0 +1,24 @@
+def findMaxLength(nums):
+    maxlen = 0
+    for start in range(0, len(nums)):
+        zeroes = 0
+        ones = 0
+        for end in range(start, len(nums)):
+            if nums[end] == 0:
+                zeroes += 1
+            else:
+                ones += 1
+
+            if zeroes == ones:
+                maxlen = max(maxlen, end - start + 1)
+
+    return maxlen
+
+# Test cases
+nums1 = [0, 1]
+result1 = findMaxLength(nums1)
+print(f"Test Case 1: {result1} (Expected Output: 2)")
+
+nums2 = [0, 1, 0]
+result2 = findMaxLength(nums2)
+print(f"Test Case 2: {result2} (Expected Output: 2)")
